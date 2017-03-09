@@ -13,8 +13,8 @@ class LocationList extends Component {
       return (
         <li className="list-group-item" key={location.spot_id}>
           <Link to={"location/" + location.spot_id}>
-            <span className="pull-xs-right">{location.shape}</span>
             <strong>{location.spot_name}</strong>
+            <span className="text-right">{location.shape}</span>
           </Link>
         </li>
       )

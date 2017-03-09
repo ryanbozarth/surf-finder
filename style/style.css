@@ -1,0 +1,11 @@
+.card {
+  max-width: 20rem;
+}
+
+.bottom {
+  margin-bottom: 2rem;
+}
+
+.text-warning {
+  margin-bottom: 0;
+}
