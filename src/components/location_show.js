@@ -8,42 +8,70 @@ class LocationShow extends Component {
     this.props.fetchLocation(this.props.params.spot_id);
   }
 
+  renderConditions(conditions) {
+    return <div>Hi</div>
+    // const label = (condition) => {
+    //   switch(condition) {
+    //     case 'Poor':
+    //     return 'danger'
+    //     case 'Poor-Fair':
+    //     return 'warning'
+    //     case 'Fair':
+    //     return 'success'
+    //   }
+    // }
+    // return (
+    //   <span className=`label label-${label(conditions.swell)}`>Swell</span>
+    //   <span className=`label label-${label(conditions.tide)}`>Tide</span>
+    //   <span className=`label label-${label(conditions.wind)}`>Wind</span>
+    // )
+  }
+
+  renderWarnings(warnings) {
+    if(!warnings.length) {
+      return <span className="label label-success">No Warnings</span>
+    }
+    return warnings.map((warning, index) => {
+      return <span className="label label-warning" key={index}>{warning}</span>
+    })
+  }
+
   renderLocation() {
-    const { location } = this.props;
-    return location.map((location) => {
+    const { locations } = this.props;
+    return locations.map((location) => {
       return (
-        <div>
-          <Link to="/">Back to Location List</Link>
-            <div className="card -flex justify-content-start">
-              <div className="card-header">
-                <h3>{location.date}</h3>
-                <p>{location.day}, {location.hour}</p>
-              </div>
-             <div className="card-block">
-               <h4 className="card-title">Size (ft): {location.size}</h4>
-               <p className="card-text">Shape: {location.shape_full}</p>
-             </div>
-             <div className="card-footer">
-               <p className="text-warning">Warning: {location.spot_id}</p>
-             </div>
-           </div>
-        </div>
+        <div className="card justify-content-start">
+          <div className="card-header">
+            <h3>{location.date.slice(0, location.date.length - 5)}</h3>
+            <p>{location.day}, {location.hour}</p>
+          </div>
+         <div className="card-block">
+           <h4 className="card-title">Size (ft): {location.size}</h4>
+           <p className="card-text">Conditions: {this.renderConditions(location.shape_detail)}</p>
+         </div>
+         <div className="card-footer">
+           <p className="text-warning">Warning: {this.renderWarnings(location.warnings)}</p>
+         </div>
+       </div>
       )
     })
   }
 
   render() {
-    if(!this.props.location) {
+    if(!this.props.locations) {
       return <div><h3>Loading...</h3></div>
     }
     return (
-      <div>{this.renderLocation()}</div>
+      <div>
+        <Link to="/">Back to Location List</Link>
+        <div className="card-wrapper">{this.renderLocation()}</div>
+      </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return { location: state.locations.location }
+  return { locations: state.locations.location }
 }
 
 export default connect(mapStateToProps, { fetchLocation })(LocationShow);
