@@ -9,30 +9,31 @@ class LocationShow extends Component {
   }
 
   renderConditions(conditions) {
-    return <div>Hi</div>
-    // const label = (condition) => {
-    //   switch(condition) {
-    //     case 'Poor':
-    //     return 'danger'
-    //     case 'Poor-Fair':
-    //     return 'warning'
-    //     case 'Fair':
-    //     return 'success'
-    //   }
-    // }
-    // return (
-    //   <span className=`label label-${label(conditions.swell)}`>Swell</span>
-    //   <span className=`label label-${label(conditions.tide)}`>Tide</span>
-    //   <span className=`label label-${label(conditions.wind)}`>Wind</span>
-    // )
+    const label = (condition) => {
+      switch(condition) {
+        case 'Poor':
+        return 'danger'
+        case 'Poor-Fair':
+        return 'warning'
+        case 'Fair':
+        return 'success'
+      }
+    }
+    return (
+      <div>
+      <span className={"badge badge-" + label(conditions.swell)}>Swell</span>
+      <span className={"badge badge-" + label(conditions.tide)}>Tide</span>
+      <span className={"badge badge-" + label(conditions.wind)}>Wind</span>
+      </div>
+    )
   }
 
   renderWarnings(warnings) {
     if(!warnings.length) {
-      return <span className="label label-success">No Warnings</span>
+      return <span className="badge badge-success">No Warnings</span>
     }
     return warnings.map((warning, index) => {
-      return <span className="label label-warning" key={index}>{warning}</span>
+      return <span className="badge badge-warning" key={index}>{warning}</span>
     })
   }
 
@@ -46,7 +47,7 @@ class LocationShow extends Component {
             <p>{location.day}, {location.hour}</p>
           </div>
          <div className="card-block">
-           <h4 className="card-title">Size (ft): {location.size}</h4>
+           <h4 className="card-title">Size: {location.size} ft</h4>
            <p className="card-text">Conditions: {this.renderConditions(location.shape_detail)}</p>
          </div>
          <div className="card-footer">
