@@ -1,4 +1,4 @@
-# surf-finder
+# Surf Finder
 
 [![Build Status](https://travis-ci.org/ryanbozarth/surf-finder.svg?branch=master)](https://travis-ci.org/ryanbozarth/surf-finder)
 
