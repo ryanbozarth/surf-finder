@@ -9,9 +9,7 @@ Know before you go.
 
 ## Documentation
 
-Lorem Ipsum.
-
-If you would like to try running it yourself, make sure you have mongo running and then:
+If you would like to try running it yourself:
 
 ```
 $ npm install
