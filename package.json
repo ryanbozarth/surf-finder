@@ -5,9 +5,11 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "test": "react-scripts test --env=jsdom",
-    "test:watch": "npm run test -- --watch"
+    "start": "node server.js",
+    "test": "exit 0",
+    "test:watch": "npm run test -- --watch",
+    "build": "webpack",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +30,9 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-preset-stage-1": "^6.1.18",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-history-api-fallback": "^2.1.0",
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.8",
