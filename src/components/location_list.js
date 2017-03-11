@@ -13,7 +13,7 @@ class LocationList extends Component {
       return (
         <li className="list-group-item" key={location.spot_id}>
           <Link to={"location/" + location.spot_id}>
-            <strong>{location.spot_name}</strong>
+            <span>{location.spot_name}</span>
             <span className="text-right">{location.shape}</span>
           </Link>
         </li>
@@ -24,7 +24,7 @@ class LocationList extends Component {
   render() {
     return (
       <div>
-        <h3>Locations</h3>
+        <h2>Locations</h2>
         <ul className="list-group">
           {this.renderLocationList()}
         </ul>

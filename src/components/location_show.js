@@ -20,42 +20,50 @@ class LocationShow extends Component {
       }
     }
     return (
-      <div>
-      <span className={"badge badge-" + label(conditions.swell)}>Swell</span>
-      <span className={"badge badge-" + label(conditions.tide)}>Tide</span>
-      <span className={"badge badge-" + label(conditions.wind)}>Wind</span>
-      </div>
+      <h4>
+      <span className={"label label-" + label(conditions.swell)}>Swell</span>
+      <span className={"label label-" + label(conditions.tide)}>Tide</span>
+      <span className={"label label-" + label(conditions.wind)}>Wind</span>
+    </h4>
     )
   }
 
   renderWarnings(warnings) {
     if(!warnings.length) {
-      return <span className="badge badge-success">No Warnings</span>
+      return <span className="text-sucess">No Warnings</span>
     }
     return warnings.map((warning, index) => {
-      return <span className="badge badge-warning" key={index}>{warning}</span>
+      return <span className="conditions-warning text-warning" key={index}>{warning}</span>
     })
   }
 
   renderLocation() {
     const { locations } = this.props;
-    return locations.map((location) => {
-      return (
-        <div className="card justify-content-start">
-          <div className="card-header">
-            <h3>{location.date.slice(0, location.date.length - 5)}</h3>
-            <p>{location.day}, {location.hour}</p>
-          </div>
-         <div className="card-block">
-           <h4 className="card-title">Size: {location.size} ft</h4>
-           <p className="card-text">Conditions: {this.renderConditions(location.shape_detail)}</p>
-         </div>
-         <div className="card-footer">
-           <p className="text-warning">Warning: {this.renderWarnings(location.warnings)}</p>
-         </div>
-       </div>
-      )
-    })
+    return (
+      <div className="panel panel-default">
+        <div className="panel-heading">{location.spot_name}</div>
+      <table className="table">
+        <thead>
+          <th>Time</th>
+          <th>Size</th>
+          <th>Conditions</th>
+          <th>Warnings</th>
+        </thead>
+          <tbody>
+            {locations.map((location) => {
+              return (
+                <tr>
+                  <th>{location.hour} {location.day}</th>
+                  <th>{location.size} ft</th>
+                  <th>{this.renderConditions(location.shape_detail)}</th>
+                  <th>{this.renderWarnings(location.warnings)}</th>
+                </tr>
+              )
+            })}
+          </tbody>
+      </table>
+    </div>
+    )
   }
 
   render() {
@@ -65,7 +73,7 @@ class LocationShow extends Component {
     return (
       <div>
         <Link to="/">Back to Location List</Link>
-        <div className="card-wrapper">{this.renderLocation()}</div>
+        <div className="">{this.renderLocation()}</div>
       </div>
     )
   }

@@ -1,41 +1,28 @@
-.card-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  max-width: 20rem;
-  min-width: 14rem;
-  flex: 1 0 25%;
-  margin: 10px;
-
-}
-
-.bottom {
-  margin-bottom: 2rem;
-}
-
-.text-warning {
-  margin-bottom: 0;
-}
-
-.label-warning:after {
+.conditions-warning:after {
   content: ", ";
 }
 
-.label-warning:last-child:after {
+.conditions-warning:last-child:after {
   content: none;
 }
 
+.label {
+  margin-right: 5px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  vertical-align: middle;
+}
+
+.list-group {
+  width: 80%;
+}
 a {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.badge {
-  margin-right: 10px;
-  padding: 8px 12px;
-  border-radius: 3px;
+h2 {
+  font-weight: 300;
 }
