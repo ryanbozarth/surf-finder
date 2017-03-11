@@ -21,9 +21,9 @@ class LocationShow extends Component {
     }
     return (
       <h4>
-      <span className={"label label-" + label(conditions.swell)}>Swell</span>
-      <span className={"label label-" + label(conditions.tide)}>Tide</span>
-      <span className={"label label-" + label(conditions.wind)}>Wind</span>
+      <span className={`label label-${label(conditions.swell)}`}>Swell</span>
+      <span className={`label label-${label(conditions.tide)}`}>Tide</span>
+      <span className={`label label-${label(conditions.wind)}`}>Wind</span>
     </h4>
     )
   }
@@ -37,29 +37,34 @@ class LocationShow extends Component {
     })
   }
 
+  renderTableRows(locations) {
+    return locations.map((location, index) => {
+      return (
+        <tr key={location.spot_id + index}>
+          <th>{location.hour} {location.day}</th>
+          <th>{location.size} ft</th>
+          <th>{this.renderConditions(location.shape_detail)}</th>
+          <th>{this.renderWarnings(location.warnings)}</th>
+        </tr>
+      )
+    })
+  }
+
   renderLocation() {
     const { locations } = this.props;
     return (
       <div className="panel panel-default">
-        {/* <div className="panel-heading">{locations[0].spot_name}</div> */}
       <table className="table">
         <thead>
-          <th>Time</th>
-          <th>Size</th>
-          <th>Conditions</th>
-          <th>Warnings</th>
+          <tr>
+            <th>Time</th>
+            <th>Size</th>
+            <th>Conditions</th>
+            <th>Warnings</th>
+          </tr>
         </thead>
           <tbody>
-            {locations.map((location) => {
-              return (
-                <tr>
-                  <th>{location.hour} {location.day}</th>
-                  <th>{location.size} ft</th>
-                  <th>{this.renderConditions(location.shape_detail)}</th>
-                  <th>{this.renderWarnings(location.warnings)}</th>
-                </tr>
-              )
-            })}
+            {this.renderTableRows(locations)}
           </tbody>
       </table>
     </div>
