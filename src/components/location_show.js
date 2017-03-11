@@ -41,7 +41,7 @@ class LocationShow extends Component {
     const { locations } = this.props;
     return (
       <div className="panel panel-default">
-        <div className="panel-heading">{location.spot_name}</div>
+        {/* <div className="panel-heading">{locations[0].spot_name}</div> */}
       <table className="table">
         <thead>
           <th>Time</th>
@@ -72,7 +72,8 @@ class LocationShow extends Component {
     }
     return (
       <div>
-        <Link to="/">Back to Location List</Link>
+        <Link to="/" className="back-link">Back to Location List</Link>
+        <h2>{this.props.locations[0].spot_name}</h2>
         <div className="">{this.renderLocation()}</div>
       </div>
     )

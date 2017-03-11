@@ -24,7 +24,7 @@ class LocationList extends Component {
   render() {
     return (
       <div>
-        <h2>Locations</h2>
+        <h2>Top Locations</h2>
         <ul className="list-group">
           {this.renderLocationList()}
         </ul>
