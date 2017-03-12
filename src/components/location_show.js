@@ -33,7 +33,7 @@ class LocationShow extends Component {
       return <span className="text-sucess">No Warnings</span>
     }
     return warnings.map((warning, index) => {
-      return <span className="conditions-warning text-warning" key={index}>{warning}</span>
+      return <span className="conditions-warning text-warning" key={warning + index}>{warning}</span>
     })
   }
 

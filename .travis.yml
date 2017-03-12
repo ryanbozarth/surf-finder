@@ -2,8 +2,6 @@ language: node_js
 node_js: node
 before_script: npm run build
 deploy:
-  provider: heroku
-  api_key: d0fef4e4-e279-4b8c-824c-e327f1133fd6
-  app: hidden-brushlands-70971
-  on:
-    repo: ryanbozarth/surf-finder
+  provider: surge
+  project: ./public/
+  domain: http://ruthless-heat.surge.sh/
