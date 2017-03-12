@@ -22,7 +22,7 @@ $ npm install
 $ npm start
 ```
 
-## Packages and Othe Tech Used
+## Packages and Other Technology Used
 
 - React
 - Redux
