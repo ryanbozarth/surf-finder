@@ -1,17 +1,20 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const fallback = require('express-history-api-fallback')
+const express = require('express');
+const path = require('path');
 
-const jsonParser = bodyParser.json()
-const app = express()
-const root = `${__dirname}/public`
+const app = express();
 
-app.use(jsonParser)
-app.use(express.static(root))
-app.use(fallback('index.html', {root}))
+// Server routes must be above webpack config
 
-// serve mongo and api here
+if (process.env.NODE_ENV !== 'production') {
+  const webpackMiddleware = require('webpack-dev-middleware');
+  const webpack = require('webpack');
+  const webpackConfig = require('./webpack.config.js')
+  app.use(webpackMiddleware(webpack(webpackConfig)));
+} else {
+  app.use(express.static('public'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+  });
+}
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log(`listening on port ${process.env.PORT || 8080}`)
-})
+app.listen(process.env.PORT || 3050, () => console.log('Listening'));
