@@ -9,6 +9,10 @@ Surf Finder is the easeast way to get a 2-day forecast for the best breaks in Ca
 
 Know before you go.
 
+![Location Lists](assets/top-locations-screenshot.png)
+
+![Location Details](assets/location-list-screenshot.png)
+
 ## Documentation
 
 If you would like to try running it yourself:
