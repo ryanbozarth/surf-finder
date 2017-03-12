@@ -1,5 +1,0 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import chai, { expect } from 'chai'
-import TestUtils from 'react-addons-test-utils'
-import Container from '../components/container'
