@@ -24,9 +24,10 @@ $ npm start
 
 ## Packages and Other Technology Used
 
-- React
+- React / React Router
 - Redux
 - Mocha
 - Webpack
 - Axios
 - Babel
+- Travis
