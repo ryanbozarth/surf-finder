@@ -79,7 +79,7 @@ class LocationShow extends Component {
       <div>
         <Link to="/" className="back-link">Back to Location List</Link>
         <h2>{this.props.locations[0].spot_name}</h2>
-        <div className="">{this.renderLocation()}</div>
+        <div>{this.renderLocation()}</div>
       </div>
     )
   }
