@@ -10,6 +10,9 @@ describe('LocationList', () => {
       locations={[]}
       fetchLocations={()=> {}} />).contains(<div></div>))
   });
+  it('should link to forecast on click', function() {
+
+  });
 
 
 });
