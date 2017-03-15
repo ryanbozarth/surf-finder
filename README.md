@@ -19,7 +19,7 @@ If you would like to try running it yourself:
 
 ```
 $ npm install
-$ npm start
+$ npm run build
 ```
 
 ## Packages and Other Technology Used
