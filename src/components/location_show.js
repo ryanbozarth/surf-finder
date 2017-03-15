@@ -89,4 +89,5 @@ function mapStateToProps(state) {
   return { locations: state.locations.location }
 }
 
+export { LocationShow as StatelessLocationShow };
 export default connect(mapStateToProps, { fetchLocation })(LocationShow);
